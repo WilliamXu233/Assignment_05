@@ -1,0 +1,91 @@
+---
+title: "Presentation"
+author: "William Xu"
+date: "2024-10-05"
+format:
+  revealjs:
+    slide-level: 2
+    theme: sky
+    transition: slide
+    scrollable: true
+    code-line-numbers: true
+    embed-resources: true
+    footer: "Footer text"
+editor:
+  render-on-save: true
+---
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv('/Users/joyasushibun/Documents/QTM 350/Assignment5/wdi.csv')
+```
+
+# Slide 1
+# GDP Per Capita Distribution
+
+```{python}
+#| code-line-numbers: "|3|6"
+#| echo: true
+#| eval: true
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+plt.hist(df['gdp_per_capita'].dropna(), bins=20, color='skyblue')
+plt.title('Distribution of GDP per Capita')
+plt.xlabel('GDP per Capita')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+```
+
+The data shows that countries with higher GDP per capita tend to be more economically developed. Countries like the United States and Switzerland are among the top performers in terms of GDP per capita.
+
+## Slide 2
+```{python}
+#| code-line-numbers: "|3|6"
+#| echo: true
+#| eval: true
+plt.figure(figsize=(10, 6))
+plt.scatter(df['gdp_per_capita'], df['life_expectancy'], color='lightgreen', alpha=0.6)
+plt.title('Scatter Plot of Life Expectancy vs GDP per Capita')
+plt.xlabel('GDP per Capita (USD)')
+plt.ylabel('Life Expectancy (Years)')
+plt.grid(True)
+plt.show()
+```
+
+Life expectancy varies significantly across countries, with developed countries such as Japan and Norway having life expectancies over 80 years.
+
+## Slide 3
+```{python}
+#| code-line-numbers: "|3|6"
+#| echo: true
+#| eval: true
+plt.figure(figsize=(10, 6))
+plt.scatter(df['gdp_per_capita'], df['unemployment_rate'], color='blue', alpha=0.7)
+plt.title('Scatter Plot of Unemployment Rate vs GDP per Capita')
+plt.xlabel('GDP per Capita (USD)')
+plt.ylabel('Unemployment Rate (%)')
+plt.grid(True)
+plt.show()
+
+```
+
+Unemployment rates differ widely, with some developed countries exhibiting very low unemployment rates while other poor countries struggle with higher levels of unemployment.
+
+## Slide 4
+Below is a table highlighting key statistics from the dataset analysis.
+```{python}
+#| code-line-numbers: "|3|5"
+#| echo: false
+#| eval: true
+summary_table = df[['unemployment_rate', 'gdp_per_capita', 'life_expectancy']].describe()
+summary_table
+
+```
+
+
+## Concluding Slide
+Thanks for Watching!
+
